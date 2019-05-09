@@ -5,9 +5,20 @@ module Api
     class CardsController < ApplicationController
 
       def index
-        require 'pry' ; binding.pry
-        # deck = Deck.find_by(id:)
-        # render json: decks
+        cards = current_deck.cards
+        render json: cards
+      end
+
+      def draw
+        # find the current deck
+        # shuffle the deck
+        # select five cards from the top
+      end
+
+      private
+
+      def current_deck
+        Deck.find_by(id: params[:deck_id])
       end
     end
   end

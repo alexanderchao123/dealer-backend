@@ -19,20 +19,14 @@ ActiveRecord::Schema.define(version: 2019_05_08_020327) do
     t.bigint "deck_id"
     t.string "rank"
     t.string "suit"
+    t.boolean "drawn", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["deck_id"], name: "index_cards_on_deck_id"
   end
 
   create_table "decks", force: :cascade do |t|
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_decks_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email"
+    t.integer "remaining", default: 52
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

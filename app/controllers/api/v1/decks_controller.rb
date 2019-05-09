@@ -19,12 +19,18 @@ module Api
       end
 
       def show
-        deck = Deck.find_by(id: params[:id])
-        render json: deck
+        render json: current_deck
       end
 
       def draw
+        cards = current_deck.deal
+        render json: cards
+      end
 
+      private
+
+      def current_deck
+        Deck.find_by(id: params[:id])
       end
     end
   end

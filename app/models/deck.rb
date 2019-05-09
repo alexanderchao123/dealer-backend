@@ -1,5 +1,4 @@
 class Deck < ApplicationRecord
-  belongs_to :user
   has_many :cards
 
   after_create :generate_cards
@@ -13,5 +12,29 @@ class Deck < ApplicationRecord
         Card.create(deck: self, rank: rank, suit: suit)
       end
     end
+  end
+
+  def undrawn_cards
+    return cards.where(drawn: false)
+  end
+
+  def shuffled_cards
+    return undrawn_cards.shuffle
+  end
+
+  def draw
+    card = shuffled_cards.first
+    card.update(drawn: true)
+    return card
+  end
+
+  def deal
+    drawn_cards = []
+    if !undrawn_cards.empty? && undrawn_cards.count >= 5
+      5.times { drawn_cards.push(draw) }
+    elsif !undrawn_cards.empty? && undrawn_cards.count == 2
+      2.times { drawn_cards.push(draw) }
+    end
+    return drawn_cards
   end
 end

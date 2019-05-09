@@ -4,6 +4,7 @@ class CreateCards < ActiveRecord::Migration[5.2]
       t.references :deck
       t.string :rank
       t.string :suit
+      t.boolean :drawn, default: false
       t.timestamps
     end
   end
