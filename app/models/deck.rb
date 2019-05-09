@@ -4,7 +4,7 @@ class Deck < ApplicationRecord
   after_create :generate_cards
 
   def generate_cards
-    suits = ['Club', 'Diamond', 'Heart', 'Spade']
+    suits = ['C', 'D', 'H', 'S']
     ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
     suits.each do |suit|
