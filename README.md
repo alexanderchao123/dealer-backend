@@ -1,6 +1,6 @@
 # Deal-It Backend
 
-This is the backend for Deal-It.
+This is the backend for Deal-It. This serves as the API for the frontend to make requests.
 
 ## Run instructions
 Note: Run the PostgreSQL application before creating and migrating the database
