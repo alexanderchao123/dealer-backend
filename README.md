@@ -8,11 +8,11 @@ Note: Run the PostgreSQL application before creating and migrating the database
 In the terminal:
 1. Clone the repository by typing ```git clone https://github.com/alexanderchao123/dealer-backend.git```
 2. ```cd``` into the repository
-3. Run: ```bundle install``` in the terminal
+3. Run: ```bundle install```
 4. Make sure PostgreSQL application is open
-5. Run: ```rails db:create``` in the terminal to create the database our application will be using
-6. Run: ```rails db:migrate``` in the terminal to migrate our tables
-7. Once the database is initialized, run: ```rails s``` to start the server
+5. Run: ```rails db:create``` to create the database our application will be using
+6. Run: ```rails db:migrate``` to migrate our tables
+7. Once the database is initialized, run: ```rails server``` to start the server
 8. Once the backend is up and running, go to the [frontend](https://github.com/alexanderchao123/dealer-frontend) and follow the run instructions
 
 ## Future Improvements
