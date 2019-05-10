@@ -22,9 +22,15 @@ class Deck < ApplicationRecord
     return undrawn_cards.shuffle
   end
 
+  def update_deck
+    cards_left = self.remaining - 1
+    self.update(remaining: cards_left)
+  end
+
   def draw
     card = shuffled_cards.first
     card.update(drawn: true)
+    update_deck
     return card
   end
 

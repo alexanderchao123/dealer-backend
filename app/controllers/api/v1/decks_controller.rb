@@ -10,7 +10,7 @@ module Api
       end
 
       def create
-        deck = Deck.new()
+        deck = Deck.new(deck_params)
         if deck.save
           render json: deck, status: :accepted
         else
@@ -28,6 +28,10 @@ module Api
       end
 
       private
+
+      def deck_params
+        params.require(:deck).permit(:name)
+      end
 
       def current_deck
         Deck.find_by(id: params[:id])
